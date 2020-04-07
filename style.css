@@ -1,11 +1,11 @@
 .colorButton {
-    background-color: rgb(255,0,0);
+    background-color: rgb(210,60,90);
     width: 50px;
     height: 50px;
     border: none;
     border-radius: 50%;
     box-shadow: none;
-    margin: 10%;
+    margin: 10px;
 }
 
 #buttonWrapper {
@@ -18,7 +18,8 @@
 
 h1 {
     text-align: center;
-    font: Courier;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
 }
 
 #colorValue {
