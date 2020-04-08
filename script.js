@@ -1,5 +1,5 @@
 //Functions
-function setButtonColor(button, red, green, blue) {
+function setColor(button, red, green, blue) {
     button.setAttribute('style', 'background-color: rgb('+ red + ',' + green + ',' + blue + ');'
     );
 }
@@ -16,6 +16,7 @@ var background = document.getElementsByTagName('body');
 
 function startGame() {
     answerMessage.innerHTML = "";
+    setColor(background[0], 255, 255, 255);
     var answerButton = Math.round(Math.random()*(buttons.length - 1));
     
     //Setting up each color value button
@@ -24,9 +25,11 @@ function startGame() {
         var green = makeColorValue();
         var blue = makeColorValue();
         var answerRed, answerGreen, answerBlue;
-        setButtonColor(buttons[i], red, green, blue);
+        setColor(buttons[i], red, green, blue);
 
         if (i == answerButton) {
+            heading.style.fontFamily = "Verdana, Geneva, Tahoma, sans-serif";
+
             heading.innerHTML = `(${red}, ${green}, ${blue})`;
             answerRed = red;
             answerGreen = green;
@@ -34,9 +37,11 @@ function startGame() {
         }
 
         buttons[i].addEventListener('click', function(){
+            answerMessage.style.fontFamily = "Verdana, Geneva, Tahoma, sans-serif";
+
             if (this === buttons[answerButton]) {
                 answerMessage.innerHTML = "Correct!";
-                setButtonColor(background[0], answerRed, answerGreen, answerBlue);
+                setColor(background[0], answerRed, answerGreen, answerBlue);
             }
             else {
                 answerMessage.innerHTML = "Wrong answer. Guess again!";
