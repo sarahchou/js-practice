@@ -12,6 +12,7 @@ function makeColorValue() {
 var buttons = document.getElementsByClassName('colorButton');
 var heading = document.getElementById('colorValue');
 var answerMessage = document.getElementById('answer');
+var background = document.getElementsByTagName('body');
 
 function startGame() {
     answerMessage.innerHTML = "";
@@ -22,15 +23,20 @@ function startGame() {
         var red = makeColorValue();
         var green = makeColorValue();
         var blue = makeColorValue();
+        var answerRed, answerGreen, answerBlue;
         setButtonColor(buttons[i], red, green, blue);
 
         if (i == answerButton) {
             heading.innerHTML = `(${red}, ${green}, ${blue})`;
+            answerRed = red;
+            answerGreen = green;
+            answerBlue = blue;
         }
 
         buttons[i].addEventListener('click', function(){
             if (this === buttons[answerButton]) {
                 answerMessage.innerHTML = "Correct!";
+                setButtonColor(background[0], answerRed, answerGreen, answerBlue);
             }
             else {
                 answerMessage.innerHTML = "Wrong answer. Guess again!";
